@@ -4,6 +4,7 @@ if(process.env.NODE_ENV != "production")
 }
 const express=require("express");
 const app=express();
+const cors = require('cors');
 const mongoose=require("mongoose");
 const methodOverride=require("method-override");
 const ejsMate=require("ejs-mate");
@@ -71,7 +72,7 @@ const sessionOptions={
 
 app.use(session(sessionOptions));
 app.use(flash());
-
+app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
